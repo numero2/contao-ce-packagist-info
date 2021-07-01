@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xliff version="1.1">
+<file datatype="php" original="src/Resources/contao/languages/en/default.php" source-language="en">
+<body>
+    <trans-unit id="CTE.packagist_details.0">
+        <source>Packagist Details</source>
+    </trans-unit>
+    <trans-unit id="MSC.packagist_label.version">
+        <source>Current version</source>
+    </trans-unit>
+    <trans-unit id="MSC.packagist_label.cto_version">
+        <source>Contao-Version</source>
+    </trans-unit>
+    <trans-unit id="MSC.packagist_label.stars">
+        <source>Stars</source>
+    </trans-unit>
+    <trans-unit id="MSC.packagist_label.downloads">
+        <source>Downloads</source>
+    </trans-unit>
+</body>
+</file>
+</xliff>

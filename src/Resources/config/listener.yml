@@ -1,0 +1,6 @@
+services:
+    _defaults:
+        public: true
+
+    numero2_packagist_details.listener.data_container.content:
+        class: numero2\CEPackagistInfoBundle\EventListener\DataContainer\ContentListener

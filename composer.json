@@ -1,0 +1,24 @@
+{
+    "name": "numero2/contao-ce-packagist-info",
+    "type": "contao-bundle",
+    "description": "Content Element that grabs and displays metadata about a package from packagist.org",
+    "license": "LGPL-3.0+",
+    "require": {
+        "contao/core-bundle": "^4.9.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "extra": {
+        "contao-manager-plugin": "numero2\\CEPackagistInfoBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "numero2\\CEPackagistInfoBundle\\": "src/"
+        }
+    }
+}

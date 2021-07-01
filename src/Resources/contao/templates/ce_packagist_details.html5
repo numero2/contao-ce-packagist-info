@@ -1,0 +1,26 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+    <ul>
+        <li class="version">
+            <div role="heading" aria-level="1"><?= $GLOBALS['TL_LANG']['MSC']['packagist_label']['version']; ?>:</div>
+            <div><?= $this->version; ?></div>
+        </li>
+        <?php if( $this->contao ): ?>
+        <li class="cto_version">
+            <div role="heading" aria-level="1"><?= $GLOBALS['TL_LANG']['MSC']['packagist_label']['cto_version']; ?>:</div>
+            <div><?= $this->contao; ?></div>
+        </li>
+        <?php endif; ?>
+        <li class="stars">
+            <div role="heading" aria-level="1"><?= $GLOBALS['TL_LANG']['MSC']['packagist_label']['stars']; ?>:</div>
+            <div><?= $this->stars; ?></div>
+        </li>
+        <li class="downloads">
+            <div role="heading" aria-level="1"><?= $GLOBALS['TL_LANG']['MSC']['packagist_label']['downloads']; ?>:</div>
+            <div><?= number_format($this->downloads,0,' ',' '); ?></div>
+        </li>
+    </ul>
+
+<?php $this->endblock(); ?>

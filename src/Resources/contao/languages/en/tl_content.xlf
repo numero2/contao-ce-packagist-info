@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<xliff version="1.1">
+<file datatype="php" original="src/Resources/contao/languages/en/tl_content.php" source-language="en">
+<body>
+    <trans-unit id="tl_content.packagist_legend">
+        <source>Packagist-Settings</source>
+    </trans-unit>
+    <trans-unit id="tl_content.packagist_name.0">
+        <source>Name of the package</source>
+    </trans-unit>
+    <trans-unit id="tl_content.packagist_name.1">
+        <source>Name of the package as it is listed at packagist.org (usually vendor/package-name).</source>
+    </trans-unit>
+</body>
+</file>
+</xliff>
