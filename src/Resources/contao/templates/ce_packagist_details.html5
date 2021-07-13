@@ -13,14 +13,18 @@
             <div><?= $this->contao; ?></div>
         </li>
         <?php endif; ?>
+        <?php if( $this->stars ): ?>
         <li class="stars">
             <div role="heading" aria-level="1"><?= $GLOBALS['TL_LANG']['MSC']['packagist_label']['stars']; ?>:</div>
             <div><?= $this->stars; ?></div>
         </li>
+        <?php endif; ?>
+        <?php if( $this->downloads ): ?>
         <li class="downloads">
             <div role="heading" aria-level="1"><?= $GLOBALS['TL_LANG']['MSC']['packagist_label']['downloads']; ?>:</div>
             <div><?= number_format($this->downloads,0,' ',' '); ?></div>
         </li>
+        <?php endif; ?>
     </ul>
 
 <?php $this->endblock(); ?>

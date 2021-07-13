@@ -67,6 +67,10 @@ class ContentPackagistDetailsController extends AbstractContentElementController
 
             $template->stars = $oData->package->github_stars;
             $template->downloads = $oData->package->downloads->total;
+
+        } else {
+
+            return new Response('');
         }
 
         return $template->getResponse();
@@ -101,9 +105,14 @@ class ContentPackagistDetailsController extends AbstractContentElementController
                     return true;
                 }
             }
+
+        } else if( $oResponse->getStatusCode() === 404 ) {
+
+            System::log('Could not update data for package "'.$model->packagist_name.'" - 404 not found', __METHOD__, TL_ERROR);
+            return false;
         }
 
-        System::log('Could not update data for package "'.$model->packagist_name.'"', __METHOD__, TL_ERROR);
+        System::log('Could not update data for package "'.$model->packagist_name.'" - unknown error', __METHOD__, TL_ERROR);
         return false;
     }
 }
