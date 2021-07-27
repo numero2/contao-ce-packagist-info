@@ -1,6 +1,7 @@
 services:
     _defaults:
         autoconfigure: true
+        autowire: true
 
     numero2\CEPackagistInfoBundle\Controller\ContentElement\ContentPackagistDetailsController:
         tags:
