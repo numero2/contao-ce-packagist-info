@@ -10,7 +10,7 @@ Content Element that grabs and displays metadata about a package from packagist.
 System requirements
 --
 
-* [Contao 4](https://github.com/contao/contao)
+* [Contao 4.9 or newer](https://github.com/contao/contao)
 
 Installation
 --

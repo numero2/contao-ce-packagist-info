@@ -5,7 +5,7 @@
  *
  * @author    Benny Born <benny.born@numero2.de>
  * @license   LGPL-3.0-or-later
- * @copyright Copyright (c) 2021, numero2 - Agentur für digitales Marketing GbR
+ * @copyright Copyright (c) 2022, numero2 - Agentur für digitales Marketing GbR
  */
 
 
@@ -22,7 +22,7 @@ class Updater {
     private $framework;
 
 
-    public function __construct(ContaoFramework $framework) {
+    public function __construct( ContaoFramework $framework ) {
         $this->framework = $framework;
     }
 
@@ -30,7 +30,7 @@ class Updater {
     /**
      * Updates the data of all content elements of type `packagist_details`
      */
-    public function __invoke(string $scope): void {
+    public function __invoke( string $scope ): void {
 
         $this->framework->initialize();
 

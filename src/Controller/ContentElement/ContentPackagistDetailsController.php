@@ -5,7 +5,7 @@
  *
  * @author    Benny Born <benny.born@numero2.de>
  * @license   LGPL-3.0-or-later
- * @copyright Copyright (c) 2021, numero2 - Agentur für digitales Marketing GbR
+ * @copyright Copyright (c) 2022, numero2 - Agentur für digitales Marketing GbR
  */
 
 
@@ -21,16 +21,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-/**
- * @ContentElement
- */
 class ContentPackagistDetailsController extends AbstractContentElementController {
 
 
     /**
      * @inheritdoc
      */
-    protected function getResponse( Template $template, ContentModel $model, Request $request ): ?Response {
+    protected function getResponse( Template $template, ContentModel $model, Request $request ): Response {
 
         if( !$model->packagist_data ) {
             self::updatePackageData($model);
@@ -101,18 +98,41 @@ class ContentPackagistDetailsController extends AbstractContentElementController
 
                 if( $model->save() ) {
 
-                    System::log('Updated packagist data for package "'.$model->packagist_name.'"', __METHOD__, TL_GENERAL);
+                    $msg = 'Updated packagist data for package "'.$model->packagist_name.'"';
+
+                    if( System::getContainer()->has('monolog.logger.contao.general') ) {
+                        System::getContainer()->get('monolog.logger.contao.general')->info($msg);
+                    } else {
+                        System::log($msg, __METHOD__, TL_GENERAL);
+                    }
+
                     return true;
                 }
             }
 
         } else if( $oResponse->getStatusCode() === 404 ) {
 
-            System::log('Could not update data for package "'.$model->packagist_name.'" - 404 not found', __METHOD__, TL_ERROR);
+            $msg = 'Could not update data for package "'.$model->packagist_name.'" - 404 not found';
+
+            if( System::getContainer()->has('monolog.logger.contao.error') ) {
+                System::getContainer()->get('monolog.logger.contao.error')->error($msg);
+            } else {
+                System::log($msg, __METHOD__, TL_ERROR);
+            }
+
             return false;
+
+        } else {
+
+            $msg = 'Could not update data for package "'.$model->packagist_name.'" - unknown error';
+
+            if( System::getContainer()->has('monolog.logger.contao.error') ) {
+                System::getContainer()->get('monolog.logger.contao.error')->error($msg);
+            } else {
+                System::log($msg, __METHOD__, TL_ERROR);
+            }
         }
 
-        System::log('Could not update data for package "'.$model->packagist_name.'" - unknown error', __METHOD__, TL_ERROR);
         return false;
     }
 }

@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    numero2\CEPackagistInfoBundle\Controller\ContentElement\ContentPackagistDetailsController:
+        tags:
+            - { name: contao.content_element, category: files, template: ce_packagist_details, renderer: esi, type: packagist_details }

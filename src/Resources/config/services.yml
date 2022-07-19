@@ -3,19 +3,8 @@ services:
         autoconfigure: true
         autowire: true
 
-    numero2\CEPackagistInfoBundle\Controller\ContentElement\ContentPackagistDetailsController:
-        tags:
-            -
-                name: contao.content_element
-                category: files
-                template: ce_packagist_details
-                renderer: esi
-                type: packagist_details
-
     numero2\CEPackagistInfoBundle\Cron\Updater:
         arguments:
             - '@contao.framework'
         tags:
-            -
-                name: contao.cronjob
-                interval: 'daily'
+            - { name: contao.cronjob, interval: 'daily' }
